@@ -6,11 +6,15 @@ class Shape {
     useColor(colorVar) {
         this.color = colorVar;
     }
+
+    render() {
+        return "";
+    }
 }
 
 class Triangle extends Shape {
     render() {
-        return `<polygon points="150, 18 244, 183 56, 182" fill="[this.color}" />`;
+        return `<polygon points="150, 18 244, 183 56, 182" fill="${this.color}" />`;
     }
 }
 
