@@ -1,26 +1,26 @@
-const { triangle, square, circle } = require("./shapes.js");
+const { Triangle, Square, Circle } = require('./shapes.js');
 
 
-describe("triangle test", () => {
+describe("Triangle test", () => {
     it("should test for a triangle with a blue background", () => {
-        const shape = new triangle();
+        const shape = new Triangle();
         shape.useColor("blue");
         expect();
     }
     )
 });
 
-describe("square test", () => {
+describe("Square test", () => {
     it("should test for a square with a purple background", () => {
-        const shape = new square();
+        const shape = new Square();
         shape.useColor("purple");
         expect();
     })
 });
 
-describe("circle test", () => {
+describe("Circle test", () => {
     it("should test for a circle with a red background", () => {
-        const shape = new circle();
+        const shape = new Circle();
         shape.useColor("red");
         expect();
     })

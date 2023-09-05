@@ -1,7 +1,8 @@
 const inquirer = require('inquirer');
-const shapeChoices = ['circle, triangle, square'];
 
-function getUserInput() {
+const shapeChoices = ['Circle', 'Triangle', 'Square'];
+
+async function getUserInput() {
     const questions = [
     {
         type: 'input',
@@ -20,16 +21,34 @@ function getUserInput() {
         choices: shapeChoices,
     },
   ]
-  .then((answers) => {
+  // .then((answers) => {
+  //   console.log('Chosen shape:', answers.logoShape);
+  // })
+  // .catch((error) => {
+  //   console.error('Error:', error);
+  try {
+    const { default: inquirer } = await import('inquirer');
+
+    const answers = await inquirer.prompt(questions);
     console.log('Chosen shape:', answers.logoShape);
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
-
-
-    const answers = inquirer.prompt(Questions);
     return answers;
-};
+  } catch (error) {
+    console.error('Error:', error);
+    throw error;
+  }
+  }
 
-module.exports = getUserInput;
+  // try {
+  //   const answers = await inquirer.prompt(questions);
+  //   console.log('Chosen shape:', answers.logoShape);
+  //   return answers;
+  // } catch (error) {
+  //   console.error('Error:', error);
+  //   throw error;
+  // }
+
+    // return inquirer.prompt(questions);
+
+// module.exports = getUserInput;
+
+module.exports = getUserInput; 
