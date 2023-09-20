@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const writeSVGToFile = require('./svgWriter.js');
 
 const shapeChoices = ['Circle', 'Triangle', 'Square'];
 
@@ -28,8 +29,11 @@ async function getUserInput() {
   //   console.error('Error:', error);
   try {
     const { default: inquirer } = await import('inquirer');
-
     const answers = await inquirer.prompt(questions);
+
+    const svgString = generateSVGString(answers);
+    writeSVGToFile('logo.svg', svgString);
+
     console.log('Chosen shape:', answers.logoShape);
     return answers;
   } catch (error) {
@@ -50,5 +54,25 @@ async function getUserInput() {
     // return inquirer.prompt(questions);
 
 // module.exports = getUserInput;
+
+function generateSVGString(answers) {
+  let svgString = '<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">';
+  svgString += "<g>";
+
+  if (answers.logoShape === "Triangle") {
+    svgString += `<polygon points="150, 18 244, 183 56, 182" fill="${answers.shapeBackgroundColor}" />`;
+  } else if (answers.logoShape === "Square") {
+    svgString += `<rect x="73" y="40" width="160" height="160" fill="${answers.shapeBackgroundColor}" />`;
+  } else if (answers.logoShape === "Circle") {
+    svgString += `<circle cx="150" cy="115" r="80" fill="${answers.shapeBackgroundColor}" />`;
+  }
+
+  svgString += `<text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>`;
+
+  svgString += "</g>";
+  svgString += "</svg>";
+
+  return svgString;
+}
 
 module.exports = getUserInput; 
