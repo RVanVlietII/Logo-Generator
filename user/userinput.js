@@ -21,18 +21,20 @@ async function getUserInput() {
         message: 'Pick a shape you would like for your logo:',
         choices: shapeChoices,
     },
+    {
+        type: 'input',
+        name: 'filename',
+        message: 'Enter the custom name of the file',
+    }
   ]
-  // .then((answers) => {
-  //   console.log('Chosen shape:', answers.logoShape);
-  // })
-  // .catch((error) => {
-  //   console.error('Error:', error);
+ 
   try {
     const { default: inquirer } = await import('inquirer');
     const answers = await inquirer.prompt(questions);
+    const svgFileName = answers.filename + '.svg';
 
     const svgString = generateSVGString(answers);
-    writeSVGToFile('logo.svg', svgString);
+    writeSVGToFile(svgFileName, svgString);
 
     console.log('Chosen shape:', answers.logoShape);
     return answers;
@@ -42,18 +44,7 @@ async function getUserInput() {
   }
   }
 
-  // try {
-  //   const answers = await inquirer.prompt(questions);
-  //   console.log('Chosen shape:', answers.logoShape);
-  //   return answers;
-  // } catch (error) {
-  //   console.error('Error:', error);
-  //   throw error;
-  // }
 
-    // return inquirer.prompt(questions);
-
-// module.exports = getUserInput;
 
 function generateSVGString(answers) {
   let svgString = '<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">';

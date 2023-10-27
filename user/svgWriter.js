@@ -3,7 +3,7 @@ const path = require('path');
 
 function writeSVGToFile(fileName, svgString) {
     const filePath = path.join('./created', fileName);
-    fs.writeFile('New-Logo', svgString, (err) => {
+    fs.writeFile(filePath, svgString, (err) => {
         if (err) {
             console.error(err);
         } else {
