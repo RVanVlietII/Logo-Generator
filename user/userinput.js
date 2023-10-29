@@ -13,13 +13,18 @@ async function getUserInput() {
     {
         type: 'input',
         name: 'textColor',
-        message: 'Enter keyword for color',
+        message: 'Enter keyword for text color',
     },
     {
         type: 'list',
         name: 'logoShape',
         message: 'Pick a shape you would like for your logo:',
         choices: shapeChoices,
+    },
+    {
+        type: 'input',
+        name: 'shapeColor',
+        message: 'Enter keyword for shape color'
     },
     {
         type: 'input',
@@ -51,11 +56,11 @@ function generateSVGString(answers) {
   svgString += "<g>";
 
   if (answers.logoShape === "Triangle") {
-    svgString += `<polygon points="150, 18 244, 183 56, 182" fill="${answers.shapeBackgroundColor}" />`;
+    svgString += `<polygon points="150, 18 244, 183 56, 182" fill="${answers.shapeColor}" />`;
   } else if (answers.logoShape === "Square") {
-    svgString += `<rect x="73" y="40" width="160" height="160" fill="${answers.shapeBackgroundColor}" />`;
+    svgString += `<rect x="73" y="40" width="160" height="160" fill="${answers.shapeColor}" />`;
   } else if (answers.logoShape === "Circle") {
-    svgString += `<circle cx="150" cy="115" r="80" fill="${answers.shapeBackgroundColor}" />`;
+    svgString += `<circle cx="150" cy="115" r="80" fill="${answers.shapeColor}" />`;
   }
 
   svgString += `<text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>`;
