@@ -24,13 +24,6 @@ This is a javascript based application used to create .svg file based shape (tri
 https://drive.google.com/file/d/1NK1apO69GsBVzgCO6WxNvqAJoZfEitJq/view 
 
 
-
-You are required to submit the following for review:
-
-* A walkthrough video that demonstrates the functionality of the application and passing tests.
-
-* At least one sample SVG file generated using your application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
-
-
+## Credit
+1) UNC CH Coding Bootcamp
+2) UNC CH Coding Bootcamp Staff and Classmates
