@@ -1,16 +1,3 @@
-// import getUserInput from './user/userinput.js';
-
-// import inquirer from 'inquirer';
-
-// const fs = require('fs');
-
-// function main() {
-//     const userInput = getUserInput();
-//     console.log('User input:', userInput);
-// }
-
-// main();
-
 const { getUserInput } = require('./user/userinput');
 const { writeSVGToFile } = require('./user/svgWriter');
 
