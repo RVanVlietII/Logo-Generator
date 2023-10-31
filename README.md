@@ -20,8 +20,7 @@ This is a javascript based application used to create .svg file based shape (tri
 3) File will be created and placed in ./created folder. 
 
 ## Walkthrough Video
-
-https://drive.google.com/file/d/1NK1apO69GsBVzgCO6WxNvqAJoZfEitJq/view 
+https://drive.google.com/file/d/1Zor0MSovkY_TwNeM8hc-kEO8A3R77f9A/view
 
 
 ## Credit
