@@ -1,15 +1,11 @@
 class Shape {
     constructor() {
         this.color = "";
-        this.shapeColor = "";
     }
 
     useColor(colorVar) {
         this.color = colorVar;
-    }
-
-    useShapeColor(shapeColorVar) {
-        this.shapeColor = shapeColorVar;
+        console.log(this.color);
     }
     
     render() {
